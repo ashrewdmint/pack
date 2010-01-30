@@ -1,0 +1,17 @@
+Pack is a command-line tool that can combine a directory full of CSS or JavaScript
+files, compress them, and then save the resulting files where you desire.
+
+Pack uses Google Closure [http://code.google.com/closure/] to compress JavaScript.
+
+Usage: pack --css=path/to/directory --css-destination=path/style.css
+  or   pack --js=path/to/directory --js-destination=path/javascript.js
+You can also pack both CSS and Javascript at once!
+  
+Options
+ --css                Directory containing CSS files and a load.txt file
+ --css-destination    Where to save the resulting compressed CSS file
+ --js                 Directory containing JavaScript files and a load.txt file
+ --js-destination     Where to save the resulting compressed JavaScript file
+
+Pack is my first released command-line tool. I don't really know how to write
+these things, so feel free to correct it as you see fit. Many thanks!
