@@ -1,17 +1,40 @@
+Pack version 1.0.0
+  Written by Andrew Smith [andrew.caleb.smith@gmail.com]
+
+Pack comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the license distributed with it.
+
 Pack is a command-line tool that can combine a directory full of CSS or JavaScript
 files, compress them, and then save the resulting files where you desire.
-
 Pack uses Google Closure [http://code.google.com/closure/] to compress JavaScript.
 
 Usage: pack --css=path/to/directory --css-destination=path/style.css
   or   pack --js=path/to/directory --js-destination=path/javascript.js
-You can also pack both CSS and Javascript at once!
+Supply all arguments to compress and save JavaScript and CSS simultaneously!
   
 Options
  --css                Directory containing CSS files and a load.txt file
  --css-destination    Where to save the resulting compressed CSS file
  --js                 Directory containing JavaScript files and a load.txt file
  --js-destination     Where to save the resulting compressed JavaScript file
+
+When you specify a CSS or a JavaScript directory to load from, Pack will look
+inside the directory for a load.txt file. This file should be a list of CSS
+or JavaScript files to load, in whichever order you desire.
+
+Example load.txt file:
+
+  # jQuery files and plugins
+  jquery/*
+  plugins/*
+  # Other files
+  common/base.js
+  common/widgets.js
+
+This example will load everything in the jquery and plugins directory (in no
+particular order), and continue to load base.js and widgets.js after that.
+Obviously, you can comment with the # character, and use the * character to
+load every file in a directory without specifying each file manually.
 
 Pack is my first released command-line tool. I don't really know how to write
 these things, so feel free to correct it as you see fit. Many thanks!

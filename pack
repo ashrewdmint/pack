@@ -1,24 +1,6 @@
 #!/usr/bin/env ruby
 require File.dirname(__FILE__) + '/lib/pack'
 
-help = "
-pack  A CSS and JavaScript asset packer
-      Written by Andrew Smith [andrew.caleb.smith@gmail.com]
-
-pack comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-welcome to redistribute it under the terms of the license distributed with it.
-
-Usage: pack --css=path/to/directory --css-destination=path/style.css
-  or   pack --js=path/to/directory --js-destination=path/javascript.js
-You can also pack both CSS and Javascript at once!
-  
-Options
- --css                Directory containing CSS files and a load.txt file
- --css-destination    Where to save the resulting compressed CSS file
- --js                 Directory containing JavaScript files and a load.txt file
- --js-destination     Where to save the resulting compressed JavaScript file
-"
-
 valid_arguments = false
 hash = {}
 
@@ -45,4 +27,4 @@ hash.each_pair do |method, args|
   end
 end
 
-puts help.strip unless valid_arguments
+puts File.read('README') unless valid_arguments
