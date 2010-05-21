@@ -82,12 +82,15 @@ private
       elsif current_file
         # Loop through directory if path ends in *
         if line =~ /\*$/
-          path = ensure_absolute_path(line.gsub!(/\*$/, ''), dir)
+          line.gsub!(/\*$/, '')
+          short_path = line
+          path       = ensure_absolute_path(line, dir)
+          
           Dir.new(path).each do |f|
             # Skip invisible files or files with the wrong type
             if f =~ extension and f.split('').first != '.'
-            current_collection[:short_files] << path + f
-              current_file_array << ensure_absolute_path(path + f, dir)
+            current_collection[:short_files] << short_path + f
+            current_file_array << ensure_absolute_path(path + f, dir)
             end
           end
         else
