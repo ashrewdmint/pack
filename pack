@@ -1,30 +1,8 @@
 #!/usr/bin/env ruby
 require File.dirname(__FILE__) + '/lib/pack'
 
-valid_arguments = false
-hash = {}
+puts File.read('README') unless ARGV.length > 0
 
-ARGV.each do |arg|
-  arg = arg.split('=')
-  key = arg.first.gsub(/--|-.*/, '')
-  type = arg.first =~ /destination/ ? :destination : :location
-  
-  hash[key] = {} unless hash[key].is_a?(Hash)
-  hash[key][type] = arg.last
+ARGV.each do |path|
+  Pack.pack path
 end
-
-hash.each_pair do |method, args|
-  if Pack.public_methods.include? method
-    if args[:location] and args[:destination]
-      valid_arguments = true
-      
-      begin
-        Pack.send(method, args[:location], args[:destination])
-      rescue Exception => e
-        abort "Error: #{e}"
-      end
-    end
-  end
-end
-
-puts File.read('README') unless valid_arguments
