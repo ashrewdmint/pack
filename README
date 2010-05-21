@@ -39,14 +39,14 @@ with the "#" character.
 
 Here's a final pack file example:
 
-  @compress css/javascript.min.css
+  @compress css/style.min.css
     # Compress everything in this folder
-    # into a file called "style.css"
+    # into a file called "style.min.css"
     css/*
     # Note: this won't read style.min.css
     # even though it uses the asterisk!
 
-  @combine js/viddler.js
+  @combine js/javascript.js
     # Combine js files into one file
     js/jquery/jquery-1.3.2.min.js
     js/jquery/jquery-ui-1.7.2.min.js
